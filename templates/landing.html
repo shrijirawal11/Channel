@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="shortcut icon" href="#" />
+
+<!--META TAGS
+<meta charset="UTF-8" />
+<meta name="language" content="ES" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />-->
+
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<!--ICONIFY ICONS-->
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+<!--JQUERY PLUGIN-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet" />
+
+<!--STYLE SHEET
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/animate.css" />
+<link rel="stylesheet" href="assets/css/home.css" />-->
+ <style>
+    /***************************
+        MAIN.CSS
+****************************/
+
+
+/***************************
+    CUSTOM SCROLL BAR
+****************************/
+*, html{
+    scroll-behavior: smooth;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root{
+    --white:#FFF;
+    --black:#000;
+    --lite:rgba(255,255,255,0.6);
+    --gray:rgba(1,1,1,0.6);
+    --dark:#232323;
+    --primary:#ff4500;
+    --primary_dark:#ef1c21;
+    --primary_lite:#fe8118;
+    --secondary:#3399ff;
+    --secondary_dark:#0079d3;
+    --secondary_lite: #3399ff;
+    --default_font:'Ysabeau Infant', sans-serif;
+    --title_font:'Outfit', sans-serif;
+}
+
+::-webkit-scrollbar {
+    height: 12px;
+    width: 4px;
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: gray;
+    -webkit-box-shadow: 0px 1px 2px var(--dark);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--dark);
+}
+
+
+
+
+
+/***************************
+            DEFAULT
+****************************/
+body{
+    margin:0;
+    overflow-x:hidden !important;
+    font-family: var(--default_font);
+}
+
+a{
+    text-decoration:none !important;
+    min-width: fit-content;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+}
+
+a, button{
+    transition:0.5s;
+}
+
+em{
+    font-style:normal;
+    color:var(--primary_dark);
+}
+
+figure{
+    padding:0;
+    margin:0;
+}
+
+a, p, .btn{
+    font-size:15px;
+}
+
+p{
+    line-height:1.9em;
+    color:var(--gray);
+}
+
+a, button, input, textarea, select{
+    outline:none !important;
+}
+
+fieldset{
+    border:0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin:0;
+}
+
+label input{
+    display:none;
+}
+
+ul li{
+    list-style:none;
+}
+
+.title, .sub_title{
+    font-family:var(--title_font);
+    font-weight:600;
+    margin:0;
+}
+
+.flex, .fixed_flex{
+    display:flex;
+}
+
+.flex_content{
+    width:100%;
+    position:relative;
+}
+
+.grid{
+    display:grid;
+}
+
+.padding_1x{
+    padding:1rem;
+}
+
+.padding_2x{
+    padding:2rem;
+}
+
+.padding_3x{
+    padding:3rem;
+}
+
+.padding_4x{
+    padding:4rem;
+}
+
+.big{
+    font-size:3.5em;
+}
+
+.medium{
+    font-size:2em;
+}
+
+.small{
+    font-size:1.3em;
+}
+
+.btn{
+    padding:0.6rem 1rem;
+    border-radius:5px;
+    position:relative;
+    border:0;
+    text-align:center;
+    font-weight:600;
+}
+
+.btn_1{
+    background:var(--primary);
+    color:var(--white);
+}
+
+.btn_1:hover{
+    opacity:0.8;
+}
+
+.btn_2{
+    background-color:var(--dark);
+    color:var(--color);
+}
+
+.btn_2:hover{
+    opacity:0.9;
+    color:var(--white);
+}
+
+.btn_3{
+    display:block;
+    background-color:0;
+    color:var(--white);
+    position:relative;
+    font-family:var(--default_font);
+    font-weight:400;
+    text-transform:uppercase;
+}
+
+.btn_3:before{
+    content:"";
+    border-radius:50%;
+    background-color:rgba(255,255,255,0.2);
+    position:absolute;
+    left:0;
+    top:50%;
+    width:50px;
+    height:50px;
+    transition:0.5s;
+    transform:translate(0%, -50%);
+}
+
+.btn_3:after{
+    content:"\f178";
+    font-family:"FontAwesome";
+    margin-left:5px;
+}
+
+.btn_3:hover:before{
+    border-radius:40px;
+    width:100%;
+}
+
+.divisions{
+    position:relative;
+}
+
+.title_header{
+    margin:auto;
+    text-align:center;
+    width:60%;
+}
+
+.ball:before{
+    content:"";
+    border-radius:50%;
+    background-color:rgba(1,1,1,0.2);
+    position:absolute;
+    left:0;
+    top:50%;
+    width:30px;
+    height:30px;  
+    transform:translate(-50%, -50%);
+}
+
+.link-tag{
+    position:relative;
+}
+
+.link-tag:before{
+    content:"\f0da";
+    font-family:"FontAwesome";
+    margin-right:5px;
+    transition:0.5s;
+    color:var(--primary_dark);
+}
+
+.link-tag:hover:before{
+    margin-right:10px;
+    color:var(--black);
+}
+
+.link-tag:hover{
+    color:var(--primary_dark);
+}
+
+@media (max-width:920px){
+    .flex{
+        flex-wrap:wrap;
+    }
+    
+    .padding_1x, .padding_2x, .padding_3x, .padding_4x{
+        padding:1rem;
+    }
+    
+    .big{
+        font-size:1.8em;
+    }
+    
+    .medium{
+        font-size:1.6em;
+    }
+    
+    .small{
+        font-size:1.1em;
+    }
+    
+    .btn{
+        padding:0.5rem 1rem;
+    }
+    
+    a, p, .btn{
+        font-size:12px;
+    }
+    
+    .title_header{
+        width:100%;
+    }
+}
+
+
+
+/***************************
+        ANIMATE.CSS
+****************************/
+
+
+/*dot*/
+.dot{
+    width:11px;
+    height:11px;
+    border:2px solid var(--white);
+    border-radius:50%;
+    background-color:#09d408;
+}
+
+
+
+/***************************
+        HOME.CSS
+****************************/
+
+
+/***************************
+        DEFAULT
+****************************/
+body{
+    background-color:#f1f1f1;
+}
+
+/***************************
+          MAIN
+****************************/
+main .left_division, main .right_division{
+    width:50%;
+}
+
+@media (max-width:920px){
+    main .left_division, main .right_division{
+        width:100%;
+    }
+    
+    main .left_division{
+        display:none;
+        order:2;
+    }
+    
+    main .middle_division{
+        order:1;
+    }
+    
+    main .right_division{
+        display:none;
+        order:3;
+    }
+}
+
+
+
+/***************************
+      LEFT DIVISION
+****************************/
+.blocks{
+    border-radius:5px;
+    position:relative;
+    overflow:hidden;
+    margin-bottom:2vh;
+}
+
+.block_1{
+    background-color:var(--white);
+    border:1px solid rgba(1,1,1,0.1);
+}
+
+.block_footer{
+    width:100%;
+    position:absolute;
+    bottom:0;
+    right:0;
+    background-color:#f9f9f9;
+    padding:0.1rem 1rem;
+    text-align:right;
+}
+
+.block_footer a{
+    color:var(--gray);
+    font-size:11px;
+}
+
+.post_row{
+    margin:0;
+    padding:0.5rem 0;
+}
+
+.post_row a{
+    align-items:center;
+    width:100%;
+}
+
+.block_1 a:not(:last-child){
+    border-bottom:1px solid rgba(1,1,1,0.1);
+}
+
+.block_1 img{
+    width:50px;
+    height:40px;
+    margin-right:10px;
+    background-color:var(--gray);
+    border-radius:5px;
+    border:1px solid rgba(1,1,1,0.1);
+}
+
+.block_1 .post_row .sub_title{
+    position:relative;
+    top:10px;
+    color:var(--dark);
+}
+
+.block_1  .post_row p{
+    font-size:12px;
+}
+
+.block_2 ul{
+    margin:0;
+    padding:1rem 0;
+}
+
+.block_2 li{
+    align-items:center;
+    padding:0.5rem 0;
+}
+
+.block_2 li .sub_title{
+    align-items:center;
+    font-size:13px;
+    font-family:var(--default_font);
+}
+
+.block_2 li .sub_title a{
+    font-size:13px;
+    color:#3399ff;
+}
+
+.block_2 .sub_title mark{
+    background-color:#c0c0c0;
+    padding:0.1rem 0.2rem;
+    margin:0 5px;
+    color:var(--gray);
+    text-align:center;
+    font-size:10px;
+    font-family:var(--title_font);
+    font-weight:400;
+}
+
+.block_2 .user_id img{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    margin-right:10px;
+}
+
+@media (max-width:1080px){
+    .block_2 .sub_title mark{
+        display:none;
+    }
+}
+
+@media (max-width:920px){
+    .block_1 .sub_title{
+        font-size:10px;
+    }
+    
+    .block_2 li .sub_title a, .block_2 .sub_title mark{
+        font-size:12px;
+    }
+    
+    .block_2 .sub_title mark{
+        margin:0 5px;
+    }
+}
+
+/***************************
+      MIDDLE DIVISION
+****************************/
+
+/*header*/
+.middle_division .header fieldset{
+    align-items:center;
+    justify-content:space-between;
+    padding:0.5rem 1rem;
+    margin:0;
+    border-radius:5px;
+    border:1px solid rgba(1,1,1,0.1);
+    background-color:var(--white);
+    position:relative;
+}
+
+.middle_division .header fieldset aside, .middle_division .header fieldset aside a{
+    display:flex;
+    align-items:center;
+    justify-content:center;  
+    color:var(--gray); 
+    border-radius:40px;
+    padding:0.2rem 0.6rem;
+    font-family:var(--title_font);
+}
+
+.middle_division .header fieldset aside a b{
+    font-weight:500;
+}
+
+.middle_division .header fieldset a{
+    position:relative;
+}
+
+.middle_division .header fieldset aside a:hover{
+    background-color:#f1f1f1;
+    
+}
+
+.middle_division .header fieldset aside a iconify-icon{
+    font-size:20px;
+}
+
+.middle_division .header fieldset aside a:not(:last-child){
+    margin-right:5px;
+}
+
+.middle_division .header fieldset aside .active{
+    background-color:#d2f0ff;
+}
+
+.middle_division .header fieldset img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+
+.middle_division .header fieldset .dot{
+    position:absolute;
+    bottom:5px;
+    right:2px;
+    z-index:1;
+}
+
+
+.middle_division .container{
+    margin:2vh auto;
+}
+
+@media (max-width:920px){
+    .middle_division .header fieldset img{
+        width:30px;
+        height:30px;
+    }
+    
+    .middle_division .header fieldset .dot{
+        bottom:3px;
+        right:1px;
+    }
+    
+    .middle_division .header fieldset aside a{
+        padding:0.2rem 0rem;
+        margin:0;
+    }
+    
+    .middle_division .header fieldset aside a:not(:last-child){
+        margin-right:1rem !important;
+    }
+    
+    .middle_division .header fieldset aside a:hover{
+        background-color:transparent;
+        color:var(--primary);
+    }
+    
+    .middle_division .header fieldset aside .active{
+        background-color:transparent;
+        color:var(--primary);
+    }
+    
+    .middle_division .header fieldset aside a:not(:last-child){
+        margin-right:3px;
+    }
+    
+    .middle_division .header fieldset aside a b{
+        display:none;
+    }
+}
+
+/*post card*/
+.post_card{
+    background-color:var(--white);
+    border-radius:5px;
+    overflow:hidden;
+    border:1px solid rgba(1,1,1,0.1);
+    margin:2vh auto;
+}
+
+.post_card:hover{
+    border:1px solid rgba(1,1,1,0.2);
+}
+
+.post_card iconify-icon{
+    margin-right:3px;
+}
+
+.post_card .user_details{
+    align-items:center;
+}
+
+.post_card .user_details img{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    margin-right:10px;
+}
+
+.post_card .user_details .sub_title{
+    position:relative;
+    top:13px;
+}
+
+.post_card .user_details .sub_title a{
+    color:#3399ff;
+    font-size:12px;
+    margin-left:10px;
+}
+
+.post_card .user_details figcaption p{
+    font-size:11px;
+    color:var(--gray);
+}
+
+.post_card .user_details figcaption p b{
+    margin-left:10px;
+}
+
+.post_card .content{
+    max-height:70vh;
+    overflow-y:auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.post_card .content::-webkit-scrollbar {
+    width:0 !important;   
+}
+
+.post_card .title{
+    color:#505050;
+}
+
+.post_card .title:hover{
+    color:var(--dark);
+}
+
+.post_card .post_image{
+    width:100%;
+    overflow:hidden;
+}
+
+.post_card .post_image img{
+    width:100%;
+    height:100%;
+}
+
+.post_card .icons{
+    margin:0;
+    padding:0;
+    padding-top:1rem;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.post_card .icons a{
+    padding:0.1rem 0.6rem;
+    display:flex;
+    align-items:Center;
+    color:var(--gray);
+    font-family:var(--title_font);
+    border-radius:40px;
+}
+
+.post_card .icons a:hover{
+    background-color:#f1f1f1;
+}
+
+.post_card .icons .votes{
+    border-radius:40px;
+    border:1px solid rgba(1,1,1,0.1);
+    overflow:hidden;
+    margin-right:10px;
+}
+
+.post_card .icons .votes a{
+    padding:0.2rem 0.5rem;
+    border-radius:0;
+}
+
+.post_card .icons .votes a:first-child{
+    border-right:1px solid rgba(1,1,1,0.1);
+}
+
+.post_card .dropdown{
+    position:relative;
+}
+
+.post_card .dropdown_content{
+    position:absolute;
+    bottom:2rem;
+    border-radius:2px 2px 0 2px;
+    right:0px;
+    z-index:1;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color:var(--white);
+    display:none;
+}
+
+.post_card .dropdown_content:after{
+    content:"\f0d7";
+    font-family:"FontAwesome";
+    position:absolute;
+    right:0px;
+    bottom:-16px;
+    color:var(--white);
+    font-size:26px;
+}
+
+.post_card .dropdown_content a{
+    width:100%;
+    padding:0.5rem 1rem;
+    border-radius:0px;
+}
+
+@media (max-width:920px){
+    .post_card .content{
+        max-height:40vh;
+    }
+}
+
+
+
+/***************************
+      RIGHT DIVISION
+****************************/
+.right_division .block_1 figure img{
+    width:100%;
+    height:100px;
+    border-radius:0;
+    object-fit:cover;
+    border:0;
+}
+
+.right_division .blocks p{
+    position:relative;
+    top:-10px;
+}
+
+.right_division .blocks .btn{
+    width:100%;
+    border-radius:40px;
+    display:block;
+}
+
+ </style>
+</head>
+<body>
+
+<!--MAIN-->
+<main class="flex">
+    <div class="flex_content divisions left_division padding_1x">
+        <!--block begining-->
+        <section class="blocks block_1 padding_1x">
+            <h5 class="title">Trending Posts</h5>
+            <article class="post_row">
+                <a href="#" class="fixed_flex">
+                    <img src="https://i.postimg.cc/SRNm5HVm/01.png" alt="" loading="lazy" />
+                    <aside>
+                        <h6 class="sub_title">What if Serbia recaptures Kosovo...</h6>
+                        <p>Posted on Jul 13</p>
+                    </aside>
+                </a>
+                <a href="#" class="fixed_flex">
+                    <img src="https://i.postimg.cc/SRNm5HVm/01.png" alt="" loading="lazy" />
+                    <aside>
+                        <h6 class="sub_title">What if Serbia recaptures Kosovo...</h6>
+                        <p>Posted on Jul 13</p>
+                    </aside>
+                </a>
+            </article>
+            <aside class="block_footer">
+                <a href="#" title="Manage Your Posts">More</a>
+            </aside>
+        </section>
+        <!--block ends-->
+        <!--block begining-->
+        <section class="blocks block_2 padding_1x">
+            <h5 class="title">Recommended Moderators</h5>
+            <ul class="user_id">
+                <li class="fixed_flex">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" loading="lazy" />
+                    <h5 class="sub_title"><a href="#">@Stellaovia</a> <a href="#"><mark>Google Brain</mark></a></h5>
+                </li>
+                <li class="fixed_flex">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" loading="lazy" />
+                    <h5 class="sub_title"><a href="#">@Johnconner</a></h5>
+                </li>
+                <li class="fixed_flex">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" loading="lazy" />
+                    <h5 class="sub_title"><a href="#">@WebProgramming</a> <a href="#"><mark>Community</mark></a></h5>
+                </li>
+                <li class="fixed_flex">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" loading="lazy" />
+                    <h5 class="sub_title"><a href="#">@Jcobs</a> <a href="#"><mark>Stater</mark></a></h5>
+                </li>
+                <li class="fixed_flex">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" loading="lazy" />
+                    <h5 class="sub_title"><a href="#">@Programmer</a> <a href="#"><mark>Researcher</mark></a></h5>
+                </li>
+                <li class="fixed_flex">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" loading="lazy" />
+                    <h5 class="sub_title"><a href="#">@ui/ux</a> <a href="#"><mark>Community</mark></a></h5>
+                </li>
+            </ul>
+        </section>
+        <!--block ends-->
+    </div>
+    <div class="flex_content divisions middle_division padding_1x">
+        <section class="header">
+            <fieldset class="fixed_flex">
+                <a href="Profile" title="Author">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" />
+                    <span class="dot" title="Live"></span>
+                </a>
+                <aside>
+                    <a href="javascript:void(0)" title="Hot" class="active"><iconify-icon icon="mdi:hot"></iconify-icon> <b>Hot</b></a>
+                    <a href="javascript:void(0)" title="Notification"><iconify-icon icon="mingcute:notification-line"></iconify-icon> <b>Notification</b></a>
+                    <a href="javascript:void(0)" title="Create Post"><iconify-icon icon="jam:write"></iconify-icon> <b>Post</b></a>
+                    <a href="javascript:void(0)" title="Create Community"><iconify-icon icon="fluent:people-community-16-regular"></iconify-icon> <b>Community</b></a>
+                </aside>
+            </fieldset>
+        </section>
+        
+        <section class="container">
+            <!--article begining-->
+            <article class="post_card padding_1x">
+                <figure class="fixed_flex user_details">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" />
+                    <figcaption>
+                        <h5 class="sub_title">Dwayne Douglas Johnson <a href="#">Follow</a></h5>
+                        <p>Member from past 1year <b>Jul 13</b></p>
+                    </figcaption>
+                </figure>
+                <a href="#" class="title">What if Serbia recaptures Kosovo while the invasion of Ukraine is going on?</a>
+                <ul class="fixed_flex icons">
+                    <li class="fixed_flex">
+                        <span class="fixed_flex votes">
+                            <a href="#"><iconify-icon icon="bx:upvote"></iconify-icon> 50</a>
+                            <a href="#"><iconify-icon icon="bx:downvote"></iconify-icon> 10</a>
+                        </span>
+                        <a href="javascript:void(0)" title="Comment"><iconify-icon icon="uil:comment"></iconify-icon> 2</a>
+                        <a href="#" title="Views"><iconify-icon icon="grommet-icons:view"></iconify-icon> 102</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="more"><iconify-icon icon="pepicons-pencil:dots-x"></iconify-icon></a>
+                        <span class="dropdown_content">
+                            <a href="#"><iconify-icon icon="material-symbols:bookmark-outline"></iconify-icon> Bookmark</a>
+                            <a href="#"><iconify-icon icon="material-symbols:share-outline"></iconify-icon> Share </a>
+                            <a href="#"><iconify-icon icon="material-symbols:report-outline"></iconify-icon> Report</a>
+                        </span>
+                    </li>
+                </ul>
+            </article>
+            <!--article ends-->
+            {% for i in feeds %}
+            <!--article begining-->
+            <article class="post_card padding_1x">
+                <figure class="fixed_flex user_details">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" />
+                    <figcaption>
+                        <h5 class="sub_title">Dwayne Douglas Johnson <a href="#">Follow</a></h5>
+                        <p>Member from past 1year <b>Jul 13</b></p>
+                    </figcaption>
+                </figure>
+                <a href="#" class="title">{{ i.title }}</a>
+                <ul class="fixed_flex icons">
+                    <li class="fixed_flex">
+                        <span class="fixed_flex votes">
+                            <a href="#"><iconify-icon icon="bx:upvote"></iconify-icon> 50</a>
+                            <a href="#"><iconify-icon icon="bx:downvote"></iconify-icon> 10</a>
+                        </span>
+                        <a href="javascript:void(0)" title="Comment"><iconify-icon icon="uil:comment"></iconify-icon> 2</a>
+                        <a href="#" title="Views"><iconify-icon icon="grommet-icons:view"></iconify-icon> 102</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="more"><iconify-icon icon="pepicons-pencil:dots-x"></iconify-icon></a>
+                        <span class="dropdown_content">
+                            <a href="#"><iconify-icon icon="material-symbols:bookmark-outline"></iconify-icon> Bookmark</a>
+                            <a href="#"><iconify-icon icon="material-symbols:share-outline"></iconify-icon> Share </a>
+                            <a href="#"><iconify-icon icon="material-symbols:report-outline"></iconify-icon> Report</a>
+                        </span>
+                    </li>
+                </ul>
+            </article>
+            <!--article ends-->
+            {% endfor  %}
+            <!--article begining-->
+            <article class="post_card padding_1x">
+                <figure class="fixed_flex user_details">
+                    <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" />
+                    <figcaption>
+                        <h5 class="sub_title">Dwayne Douglas Johnson <a href="#">Follow</a></h5>
+                        <p>Member from past 1year <b>Jul 13</b></p>
+                    </figcaption>
+                </figure>
+                <a href="#" class="title">What if Serbia recaptures Kosovo while the invasion of Ukraine is going on?</a>
+                <ul class="fixed_flex icons">
+                    <li class="fixed_flex">
+                        <span class="fixed_flex votes">
+                            <a href="#"><iconify-icon icon="bx:upvote"></iconify-icon> 50</a>
+                            <a href="#"><iconify-icon icon="bx:downvote"></iconify-icon> 10</a>
+                        </span>
+                        <a href="javascript:void(0)" title="Comment"><iconify-icon icon="uil:comment"></iconify-icon> 2</a>
+                        <a href="#" title="Views"><iconify-icon icon="grommet-icons:view"></iconify-icon> 102</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="more"><iconify-icon icon="pepicons-pencil:dots-x"></iconify-icon></a>
+                        <span class="dropdown_content">
+                            <a href="#"><iconify-icon icon="material-symbols:bookmark-outline"></iconify-icon> Bookmark</a>
+                            <a href="#"><iconify-icon icon="material-symbols:share-outline"></iconify-icon> Share </a>
+                            <a href="#"><iconify-icon icon="material-symbols:report-outline"></iconify-icon> Report</a>
+                        </span>
+                    </li>
+                </ul>
+            </article>
+            <!--article ends-->
+        </section>
+    </div>
+    <div class="flex_content divisions right_division padding_1x">
+        <!--block begining-->
+        <section class="blocks block_1">
+            <article class="padding_1x">
+                <h5 class="title"><iconify-icon icon="material-symbols:workspace-premium"></iconify-icon> Websitename Premium</h5>
+                <p>Get a premium badge & avail the benefits of free Advertisement on our platform.</p>
+                <a href="#" class="btn btn_1">Try Now</a>
+            </article>
+        </section>
+        <!--block ends-->
+        <!--block begining-->
+        <section class="blocks block_1">
+            <figure>
+                <img src="https://i.postimg.cc/bwR3YM97/block-bg.png" alt="" loading="lazy" />
+            </figure>
+            <article class="padding_1x">
+                <h5 class="title">Your Advertisement</h5>
+                <p>Advertise on our websitename platform.</p>
+            </article>
+        </section>
+        <!--block ends-->
+    </div>
+</main>
+
+<!--JAVSCRIPT
+<script type="text/javascript" src="assets/js/home.js"></script>
+</body>
+</html>
